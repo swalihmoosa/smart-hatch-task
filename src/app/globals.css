@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.wrapper {
+	width: 90%;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.spolight-bg {
+	background-image: url("/assets/banner-4 1.png");
+}
