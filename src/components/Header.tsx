@@ -57,22 +57,25 @@ export default function Header() {
 				</Button>
 			</div>
 			<nav className="flex justify-between items-center px-[50px]">
-				<h1 className="text-[#018AC6] text-[45px] font-bold relative">
-					<span className="h-[40px] w-full bg-[#fff] absolute left-0 top-[-40px]"></span>
-					<span className="h-[40px] w-full bg-[#fff] absolute left-0 bottom-[-40px]"></span>
-					LOGO
-				</h1>
+				<Link href="/">
+					<h1 className="text-[#018AC6] text-[45px] font-bold relative">
+						<span className="h-[40px] w-full bg-[#fff] absolute left-0 top-[-40px]"></span>
+						<span className="h-[40px] w-full bg-[#fff] absolute left-0 bottom-[-40px]"></span>
+						LOGO
+					</h1>
+				</Link>
 				<div className="flex items-center">
 					{naLinks?.map((item, index) => (
 						<Link
 							href={item.path}
 							key={index}
-							className="text-[14px] text-[#231F20] mr-[36px] font-bold flex items-center"
+							className="text-[14px] group relative text-[#231F20] mr-[36px] font-bold flex items-center"
 						>
 							{item.name}
 							{item?.subMenu?.length ? (
 								<IoIosArrowDown className="text-[#018AC6] ml-[4px]" />
 							) : null}
+							<span className="bg-[#009BDA] h-[3px] w-full absolute opacity-0 bottom-[-23px] left-0 group-hover:opacity-[100]" />
 						</Link>
 					))}
 				</div>

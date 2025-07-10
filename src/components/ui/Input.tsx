@@ -12,7 +12,7 @@ export default function Input({
 	isIconNeed = true,
 	inputClassName,
 	name,
-	disabled,
+	disabled = false,
 }: any) {
 	return (
 		<div className="w-full">
@@ -30,7 +30,7 @@ export default function Input({
 					value={value}
 					onChange={onChange}
 					name={name}
-					disabled
+					disabled={disabled}
 					className={`text-[#fff] p-[10px] text-[14px] w-full placeholder:text-[#fff] ${inputClassName}`}
 				/>
 				{isIconNeed && (

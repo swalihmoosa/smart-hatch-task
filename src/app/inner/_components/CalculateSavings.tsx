@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 export default function CalculateSavings() {
+	const [range, setRange] = useState(1);
 	const [cardValues, setCardValues] = useState<any>({});
 
 	const calculateTotal = () => {
@@ -41,13 +42,22 @@ export default function CalculateSavings() {
 						<h6 className="text-[32px] text-[#00426A] font-bold">
 							how many Credit Cards you have?
 						</h6>
-						<input type="range" className="mb-[37px]" />
+						<input
+							type="range"
+							className="mb-[37px]"
+							min={1}
+							max={10}
+							value={range}
+							onChange={(e: any) => {
+								setCardValues({});
+								setRange(e.target.value);
+							}}
+						/>
 						<div className="flex justify-between items-center flex-wrap gap-[14px]">
-							{cardCalculations?.map((item, index) => (
+							{Array.from({ length: range })?.map((_, index) => (
 								<CalculatorCard
 									key={index}
 									index={index}
-									card={item}
 									cardValues={cardValues}
 									setCardValues={setCardValues}
 								/>
@@ -73,7 +83,7 @@ export default function CalculateSavings() {
 							/>
 							<Input
 								label="Outstanding Amount ( AED )"
-								value={calculateTotal()?.interest / 4}
+								value={calculateTotal()?.interest / range}
 								onChange={() => {}}
 								placeholder="100,000"
 								name="ineterest"

@@ -2,7 +2,6 @@ import { useState } from "react";
 import Input from "./ui/Input";
 
 export default function CalculatorCard({
-	card,
 	setCardValues,
 	index,
 	cardValues,
